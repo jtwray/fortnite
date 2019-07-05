@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-
+import {Link} from 'react-router-dom';
 const ItemDetails = () => {
 	useEffect(() => {
 		fetchItems();
@@ -8,7 +8,7 @@ const ItemDetails = () => {
 	const [items, setItems] = useState([]);
 	const fetchItems = async () => {
 		const data = await fetch(
-            'https://fortnite-api.theapinetwork.com/prod09/upcoming.get', header: {'user_id': '4735ce9132924caf8a5b17789b40f79c', 'platform': 'pc'}
+            'https://fortnite-api.theapinetwork.com/prod09/upcoming.get',
 		);
 		console.log(data);
 		const items = await data.json();
