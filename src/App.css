@@ -5,9 +5,12 @@
 
 nav{
   background:rgb(62, 196, 241);
-  color:rgb(3, 302, 2);
+  color:rgb(4, 255, 7);
   text-shadow:1px 1px 1px white,1px 2px 1px white,1.5px 2.5px 1px white,2.5px 3.5px 1px black;
-  box-shadow: 1px 1px 2.1px rgb(29, 3, 29)
+  box-shadow: 1px 1px 2.1px rgb(29, 3, 29);
+  font-size: 2.5rem;
+  padding:2rem;
+
 }
 
 li{
@@ -19,6 +22,7 @@ li:active{
 
 
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -30,4 +34,20 @@ li:active{
   color: white;
 }
 
-
+#root > div{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width:100%;
+ 
+}
+#root > div > a{
+  min-width:30%;
+ width:100px;
+ display:flex;
+ 
+}
+#root > div > div{
+  margin:auto;
+  width:80%;
+}
