@@ -104,7 +104,7 @@ class App extends React.Component {
 								<Items {...props} items={items} />
 							)}
 						/>
-						<Route path="/items/:nameID" 	render={(props) => (
+						<Route path="/items/:id" 	render={(props) => (
 							<Item {...props} items={items} />
 						)}
 					/>

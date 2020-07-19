@@ -1,6 +1,44 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
 import Item from "./Item";
+function Items( {items}, {match},...props) {
+	return (
+		<div style={backStyles}>
+			{console.log(items)}
+			<h1>Items</h1>
+			{items.map((item,id) => {
+				const {name}=item.item;
+								
+
+				return (
+					<Link to={`/items/${item.item.name}`}
+						style={linkStyles}
+						key={item.item.name+item.itemId}>
+						<div>
+						({item.item.name}+{item.itemId})
+						</div>
+								
+						<div style={cardStyles}>
+							<img
+								src={item.item.images.icon}
+								style={imageIconStyle}
+								alt={name}
+							/>
+
+							
+
+							<h2>{name}</h2>
+
+							<h3 style={itemBlurb}>{item.item.description}</h3>
+						</div>
+					</Link>
+				);
+			} )}
+			
+		</div>
+	);
+};
+
 const itemBlurb = {
 	color: "rgb(360,156,190)",
 };
@@ -33,11 +71,7 @@ const imageIconStyle = {
 	width: `13rem`,
 
 };
-const cardImage = {
-	margin: `auto`,
-	maxWidth:'95%',
-	
-};
+
 const backStyles = {
 	backgroundColor: "rgb(4, 7, 76)",
 	border: "10px double #rgb(22, 233, 222)",
@@ -45,39 +79,6 @@ const backStyles = {
 		"rgb(62, 107, 134) 3.5px 3.3px 0px, rgb(62, 107, 134) 3.2px 2.1px 0px, rgb(62, 107, 134) 3px 1.1px 1px, grey -0.9px -1.9px 0.3px",
 	boxShadow: "3.2px 3.1px 10px #b28",
 };
-function Items( {items}, {match},...props) {
-	return (
-		<div style={backStyles}>
-			{console.log(items)}
-			<h1>Items</h1>
-			{items.map((item,id) => {
-				const {name}=item.item;
-								
 
-				return (
-					<Link to={`/items/${item.item.name}`} style={linkStyles} key={item.item.name}>
-						<div style={cardStyles}>
-							<img
-								src={item.item.images.icon}
-								style={imageIconStyle}
-								alt={name}
-							/>
 
-							<img
-								src={item.item.images.background}
-								style={cardImage}
-								alt={name}
-							/>
-
-							<h2>{name}</h2>
-
-							<h3 style={itemBlurb}>{item.item.description}</h3>
-						</div>
-					</Link>
-				);
-			} )}
-			
-		</div>
-	);
-};
 export default Items;

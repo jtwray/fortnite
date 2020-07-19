@@ -1,24 +1,25 @@
-import React, {Component} from "react";
+import React from "react";
 
-class Item extends Component {
-	state = {
-		nameID: null,
-	};
-	componentDidMount() {
-		console.log(this.props);
-
-		let nameID = this.props.match.params.nameID;
-		this.setState({nameID: nameID});
-	}
-
-	render() {
-		const {nameID}=this.state;
-		return (
-			<div className="container">
-				<h4>{nameID}</h4>
-			</div>
+export default function ( props ) {
+	const item=props.items.find(
+		( i ) => String( i.id )===props.match.params.id 
+		{                                    console.log( i, item ) }
 		);
-	}
-}
 
-export default Item;
+	if (!item) {
+		return <div>Loading...</div>;
+	}
+
+	return (
+		<div>
+			<div className="image-wrapper">
+				<img src={item.imageUrl} alt={item.name} />
+			</div>
+
+			<div className="item-title-wrapper">
+				<h2>{item.item.name}</h2>
+				<h4>${item}</h4>
+			</div>
+		</div>
+	);
+}
